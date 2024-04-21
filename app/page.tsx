@@ -12,7 +12,7 @@ export default function Home() {
           <div className="justify-center text-center gap-6 md:text-left md:flex lg:items-center lg:gap-16">
             <div className="md:order-last mb-6 space-y-6 md:mb-0 md:w-6/12 lg:w-6/12">
               <h1 className="text-4xl text-gray-700 md:text-5xl">Experience Laundry Made Easy with<span className="text-blue-500 font-bold italic"> Wash Wise</span></h1>
-              <p className="text-lg">Discover hassle-free laundry services at Wash Wise. From washing to dry cleaning, we've got you covered. Say goodbye to laundry stress and hello to fresh clothes. Get started today!</p>
+              <p className="text-lg">Discover hassle-free laundry services at Wash Wise. From washing to dry cleaning, we&apos;ve got you covered. Say goodbye to laundry stress and hello to fresh clothes. Get started today!</p>
               <div className="flex flex-row-reverse flex-wrap justify-center gap-4 md:gap-6 md:justify-end">
                 <button type="button" title="Start buying" className=" py-3 px-6 text-center rounded-xl transition bg-gray-700 shadow-xl hover:bg-gray-600 active:bg-gray-700 focus:bg-gray-600 sm:w-max">
                   <span className="block text-white font-semibold">
@@ -42,7 +42,7 @@ export default function Home() {
         </h1>
         <span className="text-center font-bold mt-10 mb-20 text-gray-700/90 w-1/2">
           <p>
-            Discover convenience like never before with Wash Wise. We're your premier destination for hassle-free laundry services, dedicated to making laundry easy and convenient for you.
+            Discover convenience like never before with Wash Wise. We&apos;re your premier destination for hassle-free laundry services, dedicated to making laundry easy and convenient for you.
           </p>
           {/* <hr className="my-4" /> */}
           <p>
@@ -331,7 +331,7 @@ export default function Home() {
             <div className=" bg-white  shadow-lg  rounded-xl p-4 hover:bg-gradient-to-r hover:from-sky-50 hover:to-sky-150">
               <h1 className="font-bold text-xl">5. Convenient Pickup and Delivery. </h1>
               <p>
-                Our convenient pickup and delivery service takes the hassle out of laundry day. Simply schedule a pickup time that works for you, and our friendly team will arrive at your doorstep to collect your laundry. Once cleaned and ready, we'll deliver it back to you, saving you time and effort. With Wash Wise, laundry day has never been easier or more convenient.              </p>
+                Our convenient pickup and delivery service takes the hassle out of laundry day. Simply schedule a pickup time that works for you, and our friendly team will arrive at your doorstep to collect your laundry. Once cleaned and ready, we&apos;ll deliver it back to you, saving you time and effort. With Wash Wise, laundry day has never been easier or more convenient.              </p>
             </div>
           </div>
         </div>
@@ -456,7 +456,7 @@ export default function Home() {
       {/* Customer Testimonial */}
       <div className="w-full py-20">
         <h1 className="text-5xl font-bold text-center pb-10">
-          <span className="text-blue-500 italic">Wash Wise</span> 's Customer Stories
+          <span className="text-blue-500 italic">Wash Wise</span> &apos;s Customer Stories
         </h1>
         <div className="flex flex-col lg:grid lg:gap-4 2xl:gap-6 lg:grid-cols-4 2xl:row-span-2 2xl:pb-8 ml-2 pt-4 px-6">
           {/* Beginning of the component about Daniel Clifford */}
@@ -479,7 +479,7 @@ export default function Home() {
               </p>
               <br />
               <p className="text-white text-opacity-50 font-medium md:text-sm 2xl:text-3xl px-7 lg:px-9 mb-3 2xl:pb-8 2xl:mx-2">
-                “ Wash Wise has transformed my laundry routine. The seamless process from booking to delivery has saved me time and effort. The quality of cleaning is exceptional, and my clothes look and feel great every time. It's a service I can rely on for its efficiency and professionalism. ”
+                “ Wash Wise has transformed my laundry routine. The seamless process from booking to delivery has saved me time and effort. The quality of cleaning is exceptional, and my clothes look and feel great every time. It&apos;s a service I can rely on for its efficiency and professionalism. ”
               </p>
             </div>
           </div>
@@ -529,7 +529,7 @@ export default function Home() {
               </p> */}
               <br />
               <p className="primary-color-blackish-blue-opacity font-medium md:text-sm 2xl:text-3xl pl-2 lg:pl-3 lg:pr-4 mb-6 2xl:pt-2 -mt-3">
-                “ I'm impressed by Wash Wise's commitment to excellence. My garments come back looking fresh and neatly folded, thanks to their meticulous handling. The user-friendly platform makes it easy to manage orders and track progress. Wash Wise has made laundry a stress-free task. ”
+                “ I&apos;m impressed by Wash Wise&apos;s commitment to excellence. My garments come back looking fresh and neatly folded, thanks to their meticulous handling. The user-friendly platform makes it easy to manage orders and track progress. Wash Wise has made laundry a stress-free task. ”
               </p>
             </div>
           </div>
@@ -554,7 +554,7 @@ export default function Home() {
               </p>
               <br />
               <p className="text-white text-opacity-50 font-medium md:text-sm 2xl:text-3xl px-4 mt-1 lg:-mt-3 2xl:mt-6">
-                “ Choosing Wash Wise has been a game-changer. The affordability paired with top-notch cleaning results is unbeatable. I've noticed a significant improvement in the longevity of my clothes since switching to Wash Wise. It's a reliable service that I highly recommend to everyone. ”
+                “ Choosing Wash Wise has been a game-changer. The affordability paired with top-notch cleaning results is unbeatable. I&apos;ve noticed a significant improvement in the longevity of my clothes since switching to Wash Wise. It&apos;s a reliable service that I highly recommend to everyone. ”
               </p>
             </div>
           </div>
