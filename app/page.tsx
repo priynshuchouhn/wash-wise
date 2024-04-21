@@ -37,7 +37,7 @@ export default function Home() {
             "url(https://res.cloudinary.com/dw1navurk/image/upload/v1713681201/wash-wise/k8epvouqj8pxgjlhs5kh.jpg)"
         }}
       >
-        <h1 className="text-gray-700 text-5xl font-semibold mt-20 mb-2">
+        <h1 className="text-gray-700 text-3xl text-center md:text-5xl font-semibold mt-20 mb-2">
           About Wash Wise
         </h1>
         <span className="text-center font-bold mt-10 mb-20 text-gray-700/90 md:w-1/2">
