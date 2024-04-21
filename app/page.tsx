@@ -31,7 +31,7 @@ export default function Home() {
       </div>
       {/* Parallax Background */}
       <section
-        className="flex flex-col w-full h-[500px] bg-cover bg-fixed bg-center justify-center items-center"
+        className="flex flex-col w-full md:h-[500px] bg-cover bg-fixed bg-center justify-center items-center"
         style={{
           backgroundImage:
             "url(https://res.cloudinary.com/dw1navurk/image/upload/v1713681201/wash-wise/k8epvouqj8pxgjlhs5kh.jpg)"
@@ -40,7 +40,7 @@ export default function Home() {
         <h1 className="text-gray-700 text-5xl font-semibold mt-20 mb-2">
           About Wash Wise
         </h1>
-        <span className="text-center font-bold mt-10 mb-20 text-gray-700/90 w-1/2">
+        <span className="text-center font-bold mt-10 mb-20 text-gray-700/90 md:w-1/2">
           <p>
             Discover convenience like never before with Wash Wise. We&apos;re your premier destination for hassle-free laundry services, dedicated to making laundry easy and convenient for you.
           </p>
