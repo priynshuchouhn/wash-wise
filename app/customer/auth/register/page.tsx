@@ -43,7 +43,6 @@ export default function CustomerRegisterPage() {
             <p className=" text-white">
                 {" "}
                 <span className="text-2xl md:text-4xl font-medium">Are you Delivery Partner?</span> <br />{" "}
-                {/* <span className="text-lg">Book For Free Career Consultation Today ! </span> */}
             </p>
             <Link href='/partner/auth/login' className="rounded-md p-2 md:px-5 md:py-3 font-medium text-slate-700 shadow-xl  hover:bg-white duration-150  bg-yellow-400">
                 Login as Partner{" "}
