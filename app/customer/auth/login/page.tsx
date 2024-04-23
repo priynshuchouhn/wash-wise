@@ -39,7 +39,7 @@ export default function CustomerLoginPage() {
             <div className="w-40 h-40 absolute bg-sky-300 rounded-full top-0 right-12 hidden md:block" />
             <div className="w-20 h-40 absolute bg-sky-300 rounded-full bottom-20 left-10 transform rotate-45 hidden md:block" />
         </div>
-        <div className="w-full bottom-0 absolute bg-blue-600 shadow-xl shadow-blue-200 py-10 px-5 md:px-20 flex justify-between items-center">
+        <div className="w-full bottom-0 md:absolute bg-blue-600 shadow-xl shadow-blue-200 py-10 px-5 md:px-20 flex justify-between items-center">
             <p className=" text-white">
                 {" "}
                 <span className="text-2xl md:text-4xl font-medium">Are you Delivery Partner?</span> <br />{" "}
