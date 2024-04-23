@@ -36,7 +36,7 @@ export const navLink = [
     { title: "About", path: "/about" },
     { title: "Contact", path: "/contact" },
     { title: "Blogs", path: "/blogs" },
-    { title: "Login", path: "/login" },
+    { title: "Login", path: "/customer/auth/login" },
 ];
 export const pricing = [
     {
