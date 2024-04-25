@@ -41,7 +41,7 @@ export default function CustomerLoginPage() {
                     />
                     {errors.email && <p className="text-red-500 text-xs mt-1">Email is required</p>}
                     <input
-                        type="text"
+                        type="password"
                         placeholder="Password"
                         {...register("password", { required: true })}
                         className="block text-sm py-3 px-4 rounded-lg w-full border outline-sky-500"
