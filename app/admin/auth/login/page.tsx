@@ -17,11 +17,9 @@ export default function AdminLoginPage() {
     } = useForm<LoginForm>()
 
     async function handleLogin(data:any) {
-        console.log(data,"submission")
         try {
             const response = await axios.post('/api/admin/login', data);
             router.push('/admin/home/dashboard');
-            console.log(response.data)
         } catch (error:any) {
             console.log(error)
         }
