@@ -27,16 +27,16 @@ const NOTIFICATION_MESSAGES = [
 ]
 
 
-export default function Header({handleSidebar}: any) {
+export default function Header({handleSidebar, userType}: any) {
     const [notificationOpen, setNotificationOpen] = useState(false);
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const router = useRouter();
     const handleLogout = async () =>{
         try {
-            const res = await axios.get('/api/admin/logout');
-            router.push('/admin/auth/login');
+            const res = await axios.get(`/api/${userType}/logout`);
+            router.push(`/${userType}/auth/login`);
         } catch (error:any) {
-            
+            console.log(error);
         }
     }
     return (

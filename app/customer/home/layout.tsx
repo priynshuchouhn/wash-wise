@@ -1,28 +1,28 @@
 'use client'
-import React, { useState } from 'react'
-import SideNav from '../../ui/dashboard/SideNav';
-import Header from '../../ui/dashboard/Header';
-import { HomeIcon, ShoppingBagIcon, UserGroupIcon, UserPlusIcon } from '@heroicons/react/24/outline';
-import Footer from '@/app/ui/dashboard/Footer';
+import Footer from "@/app/ui/dashboard/Footer";
+import Header from "@/app/ui/dashboard/Header";
+import SideNav from "@/app/ui/dashboard/SideNav";
+import { HomeIcon, ShoppingBagIcon } from "@heroicons/react/24/outline";
+import { useState } from "react";
 
-export const ADMIN_NAV_ITEMS = [
+export const CUSTOMER_NAV_ITEMS = [
     {
         title: 'Dashboard',
         icon: <HomeIcon className="h-6 w-6"/>,
         path: '/admin/home/dashboard'
     },
+    // {
+    //     title: 'Customers',
+    //     icon: <UserGroupIcon className="h-6 w-6"/>,
+    //     path: '/admin/home/customer/list'
+    // },
+    // {
+    //     title: 'Partners',
+    //     icon: <UserPlusIcon className="h-6 w-6"/>,
+    //     path: '/admin/home/partner/list'
+    // },
     {
-        title: 'Customers',
-        icon: <UserGroupIcon className="h-6 w-6"/>,
-        path: '/admin/home/customer/list'
-    },
-    {
-        title: 'Partners',
-        icon: <UserPlusIcon className="h-6 w-6"/>,
-        path: '/admin/home/partner/list'
-    },
-    {
-        title: 'Orders',
+        title: 'Previous Orders',
         icon: <ShoppingBagIcon className="h-6 w-6"/>,
         path: '/admin/home/order/list'
     },
@@ -43,9 +43,9 @@ export default function Layout( {children}: {children: React.ReactNode}) {
             <div className="flex h-screen bg-gray-200">
                 <SideNav sidebarOpen={sidebarOpen}
                     handleSidebar={setSidebarOpen} 
-                    navItems ={ADMIN_NAV_ITEMS}/>
+                    navItems ={CUSTOMER_NAV_ITEMS}/>
                 <div className="flex flex-col flex-1 overflow-hidden">
-                    <Header handleSidebar={handleSidebarToggle} userType={'admin'} />
+                    <Header handleSidebar={handleSidebarToggle} userType={'customer'} />
                     {children}
             <Footer/>
                 </div>
@@ -53,4 +53,3 @@ export default function Layout( {children}: {children: React.ReactNode}) {
         </div>
     </>
 }
-
