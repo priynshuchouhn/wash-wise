@@ -8,27 +8,27 @@ import Footer from '@/app/ui/dashboard/Footer';
 export const ADMIN_NAV_ITEMS = [
     {
         title: 'Dashboard',
-        icon: <HomeIcon className="h-6 w-6"/>,
+        icon: <HomeIcon className="h-6 w-6" />,
         path: '/admin/home/dashboard'
     },
     {
         title: 'Customers',
-        icon: <UserGroupIcon className="h-6 w-6"/>,
+        icon: <UserGroupIcon className="h-6 w-6" />,
         path: '/admin/home/customer/list'
     },
     {
         title: 'Partners',
-        icon: <UserPlusIcon className="h-6 w-6"/>,
+        icon: <UserPlusIcon className="h-6 w-6" />,
         path: '/admin/home/partner/list'
     },
     {
         title: 'Orders',
-        icon: <ShoppingBagIcon className="h-6 w-6"/>,
+        icon: <ShoppingBagIcon className="h-6 w-6" />,
         path: '/admin/home/order/list'
     },
 ]
 
-export default function Layout( {children}: {children: React.ReactNode}) {
+export default function Layout({ children }: { children: React.ReactNode }) {
     const [sidebarOpen, setSidebarOpen] = useState(false);
 
     function handleSidebarToggle(params?: boolean) {
@@ -42,12 +42,16 @@ export default function Layout( {children}: {children: React.ReactNode}) {
         <div>
             <div className="flex h-screen bg-gray-200">
                 <SideNav sidebarOpen={sidebarOpen}
-                    handleSidebar={setSidebarOpen} 
-                    navItems ={ADMIN_NAV_ITEMS}/>
+                    handleSidebar={setSidebarOpen}
+                    navItems={ADMIN_NAV_ITEMS} />
                 <div className="flex flex-col flex-1 overflow-hidden">
                     <Header handleSidebar={handleSidebarToggle} userType={'admin'} />
-                    {children}
-            <Footer/>
+                    <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200">
+                        <div className="container px-6 py-8 mx-auto">
+                            {children}
+                        </div>
+                    </main>
+                    <Footer />
                 </div>
             </div>
         </div>

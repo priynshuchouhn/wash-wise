@@ -31,7 +31,7 @@ export async function POST(request: Request,) {
         // userObj.token = token;
         cookies().set("token", token, {
             httpOnly: true,
-            secure: true
+            // secure: true
         });
         return NextResponse.json({ message: 'User Login successfully', data: userObj }, { status: 200 })
     } catch (error) {

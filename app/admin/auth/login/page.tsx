@@ -19,7 +19,8 @@ export default function AdminLoginPage() {
     async function handleLogin(data:any) {
         try {
             const response = await axios.post('/api/admin/login', data);
-            router.push('/admin/home/dashboard');
+            router.replace('/admin/home/dashboard');
+            console.log(response);
         } catch (error:any) {
             console.log(error)
         }
