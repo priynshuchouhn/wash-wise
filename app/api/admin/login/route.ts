@@ -25,7 +25,7 @@ export async function POST(request: Request,) {
         if (!isPasswordMatch) {
             return NextResponse.json({ message: 'Invalid login credentials', data: [] }, { status: 400 })
         }
-        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET!, { expiresIn: '1d' });
+        const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET!, { expiresIn: '1d' });
         const userObj = user.toObject();
         delete userObj.password;
         // userObj.token = token;
