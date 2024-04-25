@@ -3,10 +3,11 @@ import { NextResponse } from "next/server";
 import { User } from "@/models/userModel";
 import bcryptjs from 'bcryptjs';
 import * as jwt from 'jsonwebtoken';
+import { cookies } from "next/headers";
 
 connectDB();
 
-export async function POST(request: Request) {
+export async function POST(request: Request,) {
     try {
         const reqBody = await request.json();
         const { email, password } = reqBody;
@@ -17,6 +18,9 @@ export async function POST(request: Request) {
         if (!user) {
             return NextResponse.json({ message: 'User doesn\'t exists', data: [] }, { status: 400 })
         }
+        if(user.role != 'Admin'){
+            return NextResponse.json({ message: 'User doesn\'t exists', data: [] }, { status: 400 })
+        }
         const isPasswordMatch = await bcryptjs.compare(password, user.password);
         if (!isPasswordMatch) {
             return NextResponse.json({ message: 'Invalid login credentials', data: [] }, { status: 400 })
@@ -24,7 +28,11 @@ export async function POST(request: Request) {
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET!, { expiresIn: '1d' });
         const userObj = user.toObject();
         delete userObj.password;
-        userObj.token = token;
+        // userObj.token = token;
+        cookies().set("token", token, {
+            httpOnly: true,
+            // secure: true
+        });
         return NextResponse.json({ message: 'User Login successfully', data: userObj }, { status: 200 })
     } catch (error) {
         console.log(error)

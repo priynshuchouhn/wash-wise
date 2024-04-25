@@ -1,3 +1,4 @@
+
 export const services = [
     {
         "title": "Washing",
@@ -70,4 +71,6 @@ export const pricing = [
         "description": "Advanced stain removal techniques to tackle even the toughest stains effectively, leaving your clothes fresh and clean."
     }
 ];
+
+
 

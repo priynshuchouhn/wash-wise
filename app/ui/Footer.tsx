@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Footer: React.FC = () => {
     return <div className=" bg-gray-900">
     <div className="max-w-2xl mx-auto text-white py-10">
@@ -36,6 +38,7 @@ const Footer: React.FC = () => {
           <span className="px-2">About us</span>
           <span className="px-2 border-l">Contact us</span>
           <span className="px-2 border-l">Privacy Policy</span>
+          <Link href="/admin/auth/login" className="px-2 border-l">Admin</Link>
         </div>
       </div>
     </div>
