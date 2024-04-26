@@ -15,15 +15,15 @@ export default function Home() {
               <p className="text-lg">Discover hassle-free laundry services at Wash Wise. From washing to dry cleaning, we&apos;ve got you covered. Say goodbye to laundry stress and hello to fresh clothes. Get started today!</p>
               <div className="flex flex-row-reverse flex-wrap justify-center gap-4 md:gap-6 md:justify-end">
                 <button type="button" title="Start buying" className=" py-3 px-6 text-center rounded-xl transition bg-gray-700 shadow-xl hover:bg-gray-600 active:bg-gray-700 focus:bg-gray-600 sm:w-max">
-                  <span className="block text-white font-semibold">
+                  <Link href='/services' className="block text-white font-semibold">
                     Explore Our Services
-                  </span>
+                  </Link>
                 </button>
               </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-5 grid-rows-4 gap-4 md:w-5/12 lg:w-6/12">
               <div className="col-span-4 row-span-4 text-center">
-                <img src="https://res.cloudinary.com/dw1navurk/image/upload/v1713680192/wash-wise/dgxzslxhxrditbcp1uxu.jpg" className="rounded-full " width="640" height="960" alt="shoes" loading="lazy" />
+                <Image src="https://res.cloudinary.com/dw1navurk/image/upload/v1713680192/wash-wise/dgxzslxhxrditbcp1uxu.jpg" className="rounded-full " width="640" height="960" alt="shoes" loading="lazy" />
               </div>
             </div>
           </div>
@@ -342,7 +342,10 @@ export default function Home() {
           <div className="flex flex-col items-center justify-between lg:flex-row py-16">
             <div className=" relative ">
               <div className=" absolute top-0 -left-48 z-0 opacity-90">
-                <img
+                <Image
+                width={120}
+                height={120}
+                alt="partner"
                   src="https://res.cloudinary.com/dw1navurk/image/upload/v1713691281/wash-wise/uu3s6a8spepgmxmbfn9q.jpg"
                   className="w-36 z-0 h-full object-fill fill-y text-y"
                 />
@@ -357,7 +360,7 @@ export default function Home() {
                 </p>
                 <div className="mt-10 flex flex-row justify-around items-center md:justify-start">
                   <a
-                    href="/"
+                    href="/partner/auth/login"
                     className="mb-3 inline-flex h-12  items-center justify-center rounded bg-green-600 px-6 font-medium tracking-wide text-white shadow-md transition hover:bg-blue-800 focus:outline-none md:mr-4 md:mb-0 md:w-auto"
                   >
                     Join now
@@ -402,7 +405,7 @@ export default function Home() {
                 />
               </svg>
               <div className="abg-orange-400 mx-auto w-fit overflow-hidden rounded-[6rem] rounded-br-none rounded-tl-none">
-                <img src="https://res.cloudinary.com/dw1navurk/image/upload/v1713690246/wash-wise/dkiyj7mbaumbtnjicanl.jpg" alt="delivery-partner" width={350} height={250} />
+                <Image src="https://res.cloudinary.com/dw1navurk/image/upload/v1713690246/wash-wise/dkiyj7mbaumbtnjicanl.jpg" alt="delivery-partner" width={350} height={250} />
               </div>
             </div>
           </div>
@@ -462,7 +465,7 @@ export default function Home() {
           {/* Beginning of the component about Daniel Clifford */}
           <div className="bg-blue-800 lg:order-1 lg:row-span-1 2xl:row-span-1 lg:col-span-2 rounded-lg shadow-xl mb-5 lg:mb-0">
             <div className="mx-6 my-8 2xl:mx-10">
-              <img
+              <Image alt="avatar"
                 className="w-8 md:w-9 lg:w-10 2xl:w-20 h-8 md:h-9 lg:h-10 2xl:h-20 rounded-full border-2 ml-1 lg:ml-3 2xl:ml-0 md:-mt-1 2xl:-mt-4"
                 src="https://images.pexels.com/photos/3775534/pexels-photo-3775534.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
               />
@@ -487,7 +490,7 @@ export default function Home() {
           {/* Beginning of the component about Jonathan Walters */}
           <div className="bg-gray-900 lg:order-2 lg:row-span-1 2xl:row-span-1 lg:col-span-1 rounded-lg shadow-xl pb-4 mb-5 lg:mb-0">
             <div className="mx-8 2xl:mx-10 my-10">
-              <img
+              <Image alt="avatar"
                 className="w-8 md:w-9 2xl:w-20 h-8 md:h-9 2xl:h-20 rounded-full border-2 -ml-1 -mt-2 lg:-mt-4"
                 src="https://images.pexels.com/photos/634021/pexels-photo-634021.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
               />
@@ -512,7 +515,7 @@ export default function Home() {
           {/* Beginning of the component about Jeanette Harmon */}
           <div className="bg-primary-color-white lg:order-3 lg:row-span-2 2xl:row-span-1 lg:col-span-1 rounded-lg shadow-xl mb-5 lg:mb-0 2xl:mb-8">
             <div className="mx-8 my-10 lg:my-8">
-              <img
+              <Image alt="avatar"
                 className="w-8 md:w-9 lg:w-11 2xl:w-20 h-8 md:h-9 lg:h-11 2xl:h-20 rounded-full border-2 -mt-3 -ml-1 lg:-ml-0"
                 src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
               />
@@ -537,7 +540,7 @@ export default function Home() {
           {/* Beginning of the component about Patrick Abrams */}
           <div className="bg-blue-800 lg:order-4 lg:row-span-2 2xl:row-span-1 col-span-2 rounded-lg shadow-xl mb-5 lg:mb-0 2xl:mb-8 lg:pb-14 2xl:pb-20">
             <div className="mx-8 my-8">
-              <img
+              <Image alt="avatar"
                 className="w-8 md:w-9 lg:w-10 2xl:w-20 h-8 md:h-9 lg:h-10 2xl:h-20 rounded-full border-2 lg:-mt-3"
                 src="https://images.pexels.com/photos/3778603/pexels-photo-3778603.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
               />
@@ -562,7 +565,7 @@ export default function Home() {
           {/* Beginning of the component about Kira Whittle */}
           <div className="bg-primary-color-white lg:order-2 lg:row-span-4 lg:col-span-1 rounded-lg shadow-xl mb-5 lg:pb-4 2xl:h-screen">
             <div className="mx-8 my-8 lg:pl-1">
-              <img
+              <Image alt="avatar"
                 className="w-8 md:w-9 lg:w-12 2xl:w-20 h-8 md:h-9 lg:h-12 2xl:h-20 rounded-full border-2 lg:-mt-4 -ml-1 lg:-ml-4"
                 src="https://images.pexels.com/photos/3762804/pexels-photo-3762804.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
               />
@@ -570,7 +573,7 @@ export default function Home() {
                 Sushma Hegde
               </h1>
               <h2 className="primary-color-blackish-blue-opacity text-xs md:text-base 2xl:text-2xl pl-10 md:pl-12 2xl:pl-24">
-               Pune, Maharastra
+               Pune, Maharashtra
               </h2>
             </div>
             <div className="px-3 lg:px-5 lg:-mt-4 mb-5 lg:mb-0">
