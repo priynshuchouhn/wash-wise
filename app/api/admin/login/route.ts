@@ -33,6 +33,10 @@ export async function POST(request: Request,) {
             httpOnly: true,
             // secure: true
         });
+        cookies().set("userType", user.role, {
+            httpOnly: true,
+            // secure: true
+        });
         return NextResponse.json({ message: 'User Login successfully', data: userObj }, { status: 200 })
     } catch (error) {
         console.log(error)

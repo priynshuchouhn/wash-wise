@@ -1,10 +1,20 @@
 'use client';
-import React, { useEffect } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 function Page() {
   const { register } = useForm();
-  useEffect(()=>{},[])
+  const [lstServices, setLstServices] = useState([]) as any
+  useEffect(()=>{
+    axios.get('/api/customer/services').then(res=>{
+      const data = res.data.data
+      setLstServices(data);
+      // console.log(data);
+    }).catch(err=>{
+      console.log(err);
+    })
+  },[])
   return (
     <div className="min-h-screen p-0 sm:p-12">
       <div className="mx-auto max-w-md px-6 py-12 bg-white border-0 shadow-lg sm:rounded-3xl">
@@ -16,9 +26,8 @@ function Page() {
             </label>
             <div className="mt-2">
               <select className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" {...register('service', { required: true })}>
-                <option>United States</option>
-                <option>Canada</option>
-                <option>Mexico</option>
+                {lstServices.map((item:any) => <option key={item._id} value={item.name}>{item}</option>)}
+               
               </select>
             </div>
           </div>

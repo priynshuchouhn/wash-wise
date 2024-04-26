@@ -465,7 +465,8 @@ export default function Home() {
           {/* Beginning of the component about Daniel Clifford */}
           <div className="bg-blue-800 lg:order-1 lg:row-span-1 2xl:row-span-1 lg:col-span-2 rounded-lg shadow-xl mb-5 lg:mb-0">
             <div className="mx-6 my-8 2xl:mx-10">
-              <Image alt="avatar"
+              <Image  width={120}
+                height={120} alt="avatar"
                 className="w-8 md:w-9 lg:w-10 2xl:w-20 h-8 md:h-9 lg:h-10 2xl:h-20 rounded-full border-2 ml-1 lg:ml-3 2xl:ml-0 md:-mt-1 2xl:-mt-4"
                 src="https://images.pexels.com/photos/3775534/pexels-photo-3775534.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
               />
@@ -490,7 +491,8 @@ export default function Home() {
           {/* Beginning of the component about Jonathan Walters */}
           <div className="bg-gray-900 lg:order-2 lg:row-span-1 2xl:row-span-1 lg:col-span-1 rounded-lg shadow-xl pb-4 mb-5 lg:mb-0">
             <div className="mx-8 2xl:mx-10 my-10">
-              <Image alt="avatar"
+              <Image  width={120}
+                height={120} alt="avatar"
                 className="w-8 md:w-9 2xl:w-20 h-8 md:h-9 2xl:h-20 rounded-full border-2 -ml-1 -mt-2 lg:-mt-4"
                 src="https://images.pexels.com/photos/634021/pexels-photo-634021.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
               />
@@ -515,7 +517,8 @@ export default function Home() {
           {/* Beginning of the component about Jeanette Harmon */}
           <div className="bg-primary-color-white lg:order-3 lg:row-span-2 2xl:row-span-1 lg:col-span-1 rounded-lg shadow-xl mb-5 lg:mb-0 2xl:mb-8">
             <div className="mx-8 my-10 lg:my-8">
-              <Image alt="avatar"
+              <Image  width={120}
+                height={120} alt="avatar"
                 className="w-8 md:w-9 lg:w-11 2xl:w-20 h-8 md:h-9 lg:h-11 2xl:h-20 rounded-full border-2 -mt-3 -ml-1 lg:-ml-0"
                 src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
               />
@@ -540,7 +543,8 @@ export default function Home() {
           {/* Beginning of the component about Patrick Abrams */}
           <div className="bg-blue-800 lg:order-4 lg:row-span-2 2xl:row-span-1 col-span-2 rounded-lg shadow-xl mb-5 lg:mb-0 2xl:mb-8 lg:pb-14 2xl:pb-20">
             <div className="mx-8 my-8">
-              <Image alt="avatar"
+              <Image  width={120}
+                height={120} alt="avatar"
                 className="w-8 md:w-9 lg:w-10 2xl:w-20 h-8 md:h-9 lg:h-10 2xl:h-20 rounded-full border-2 lg:-mt-3"
                 src="https://images.pexels.com/photos/3778603/pexels-photo-3778603.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
               />
@@ -565,7 +569,8 @@ export default function Home() {
           {/* Beginning of the component about Kira Whittle */}
           <div className="bg-primary-color-white lg:order-2 lg:row-span-4 lg:col-span-1 rounded-lg shadow-xl mb-5 lg:pb-4 2xl:h-screen">
             <div className="mx-8 my-8 lg:pl-1">
-              <Image alt="avatar"
+              <Image  width={120}
+                height={120} alt="avatar"
                 className="w-8 md:w-9 lg:w-12 2xl:w-20 h-8 md:h-9 lg:h-12 2xl:h-20 rounded-full border-2 lg:-mt-4 -ml-1 lg:-ml-4"
                 src="https://images.pexels.com/photos/3762804/pexels-photo-3762804.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
               />
