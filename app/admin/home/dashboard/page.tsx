@@ -1,7 +1,20 @@
-import { ArrowUpOnSquareStackIcon, PaperAirplaneIcon, ShoppingBagIcon, UserPlusIcon } from '@heroicons/react/24/outline'
-import React from 'react'
+'use client';
+import {  ShoppingBagIcon, UserPlusIcon } from '@heroicons/react/24/outline'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 
 function page() {
+  const [metrics, setMetrics] = useState({
+    orders:0,
+    customer:0,
+    partner:0
+  });
+  useEffect(()=>{
+    axios.get('/api/admin/dashboard/metrics').then(res=>{
+      const data = res.data.data
+      setMetrics(data)
+    }).catch(err=>{})
+  },[])
   return (
     <>
       <h3 className="text-3xl font-medium text-gray-700">Dashboard</h3>
@@ -34,7 +47,7 @@ function page() {
               </div>
 
               <div className="mx-5">
-                <h4 className="text-2xl font-semibold text-gray-700">0</h4>
+                <h4 className="text-2xl font-semibold text-gray-700">{metrics.customer}</h4>
                 <div className="text-gray-500">Total Customers</div>
               </div>
             </div>
@@ -48,7 +61,7 @@ function page() {
               </div>
 
               <div className="mx-5">
-                <h4 className="text-2xl font-semibold text-gray-700">0</h4>
+                <h4 className="text-2xl font-semibold text-gray-700">{metrics.partner}</h4>
                 <div className="text-gray-500">Total Partners</div>
               </div>
             </div>
@@ -61,7 +74,7 @@ function page() {
               </div>
 
               <div className="mx-5">
-                <h4 className="text-2xl font-semibold text-gray-700">0</h4>
+                <h4 className="text-2xl font-semibold text-gray-700">{metrics.orders}</h4>
                 <div className="text-gray-500">Total Orders</div>
               </div>
             </div>
