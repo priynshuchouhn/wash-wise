@@ -12,7 +12,7 @@ export async function GET(request: NextRequest) {
             return NextResponse.json({success: false , message: 'Token not found'}, {status: 400});
         }
         const userData = getDetailsFromToken(token.value) as any;
-        const lstOrder = await Order.find({customerId: userData.id});
+        const lstOrder = await Order.find({customerId: userData.id}).populate({ path: 'productId', options: { strictPopulate: false } }).sort({orderDate: -1});
        return NextResponse.json({message: 'Orders Fetched successfully', data: lstOrder}, {status: 200});
     } catch (error: any) {
         console.log(error);

@@ -14,7 +14,7 @@ const CUSTOMER_NAV_ITEMS = [
     {
         title: 'Previous Orders',
         icon: <ShoppingBagIcon className="h-6 w-6"/>,
-        path: '/customer/home/order/list'
+        path: '/customer/home/order/'
     },
 ]
 

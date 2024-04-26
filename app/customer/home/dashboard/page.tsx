@@ -38,7 +38,7 @@ function Page() {
       const body = {
         productId: data.service,
         quantity: data.quantity,
-        totalPrice: data.amount
+        totalPrice: price
       }
       const response = await axios.post('/api/customer/order/add', body);
       console.log(response);
