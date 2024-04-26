@@ -4,22 +4,23 @@ import logo from '../../../public/wash-wise-logo.png';
 import Image from 'next/image';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 const NOTIFICATION_MESSAGES = [
     {
-        "sender": "Chill Pitch",
+        "sender": "Wash Wise",
         "message": "Welcome to our platform!",
         "time": "1m ago",
         "img": logo
     },
     {
-        "sender": "Chill Pitch",
+        "sender": "Wash Wise",
         "message": "New feature announcement: Enhanced analytics tools!",
         "time": "2d ago",
         "img": logo
     },
     {
-        "sender": "Chill Pitch",
+        "sender": "Wash Wise",
         "message": "Holiday season promotion: Get 20% off on all plans!",
         "time": "3mon ago",
         "img": logo
@@ -100,7 +101,7 @@ export default function Header({handleSidebar, userType}: any) {
 
                     {dropdownOpen && (
                         <div className="absolute right-0 z-10 w-48 mt-2 overflow-hidden bg-white rounded-md shadow-xl">
-                            <a className="block px-4 py-2 text-sm text-gray-700 hover:bg-sky-100 hover:text-blue-500 cursor-pointer">Profile</a>
+                            <Link href={`/${userType}/home/profile`} className="block px-4 py-2 text-sm text-gray-700 hover:bg-sky-100 hover:text-blue-500 cursor-pointer" onClick={() => setDropdownOpen(false)}>Profile</Link>
                             <a onClick={handleLogout} className="block px-4 py-2 text-sm text-gray-700 hover:bg-sky-100 hover:text-blue-500 cursor-pointer">Logout</a>
                         </div>
                     )}

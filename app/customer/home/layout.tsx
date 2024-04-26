@@ -5,26 +5,16 @@ import SideNav from "@/app/ui/dashboard/SideNav";
 import { HomeIcon, ShoppingBagIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 
-export const CUSTOMER_NAV_ITEMS = [
+const CUSTOMER_NAV_ITEMS = [
     {
         title: 'Dashboard',
         icon: <HomeIcon className="h-6 w-6"/>,
-        path: '/admin/home/dashboard'
+        path: '/customer/home/dashboard'
     },
-    // {
-    //     title: 'Customers',
-    //     icon: <UserGroupIcon className="h-6 w-6"/>,
-    //     path: '/admin/home/customer/list'
-    // },
-    // {
-    //     title: 'Partners',
-    //     icon: <UserPlusIcon className="h-6 w-6"/>,
-    //     path: '/admin/home/partner/list'
-    // },
     {
         title: 'Previous Orders',
         icon: <ShoppingBagIcon className="h-6 w-6"/>,
-        path: '/admin/home/order/list'
+        path: '/customer/home/order/list'
     },
 ]
 

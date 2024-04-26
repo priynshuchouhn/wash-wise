@@ -5,26 +5,21 @@ import SideNav from "@/app/ui/dashboard/SideNav";
 import { CurrencyDollarIcon, HomeIcon, ShoppingBagIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 
-export const PARTNER_NAV_ITEMS = [
+const PARTNER_NAV_ITEMS = [
     {
         title: 'Dashboard',
         icon: <HomeIcon className="h-6 w-6"/>,
-        path: '/admin/home/dashboard'
+        path: '/partner/home/dashboard'
     },
     {
         title: 'Earnings',
         icon: <CurrencyDollarIcon className="h-6 w-6"/>,
-        path: '/admin/home/customer/list'
+        path: '/partner/home/earnings/'
     },
-    // {
-    //     title: 'Partners',
-    //     icon: <UserPlusIcon className="h-6 w-6"/>,
-    //     path: '/admin/home/partner/list'
-    // },
     {
         title: 'Previous Orders',
         icon: <ShoppingBagIcon className="h-6 w-6"/>,
-        path: '/admin/home/order/list'
+        path: '/partner/home/order/list'
     },
 ]
 

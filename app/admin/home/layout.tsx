@@ -5,7 +5,7 @@ import Header from '../../ui/dashboard/Header';
 import { HomeIcon, ShoppingBagIcon, UserGroupIcon, UserPlusIcon } from '@heroicons/react/24/outline';
 import Footer from '@/app/ui/dashboard/Footer';
 
-export const ADMIN_NAV_ITEMS = [
+const ADMIN_NAV_ITEMS = [
     {
         title: 'Dashboard',
         icon: <HomeIcon className="h-6 w-6" />,
