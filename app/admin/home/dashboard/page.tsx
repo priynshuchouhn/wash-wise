@@ -3,7 +3,7 @@ import {  ShoppingBagIcon, UserPlusIcon } from '@heroicons/react/24/outline'
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 
-function page() {
+function Page() {
   const [metrics, setMetrics] = useState({
     orders:0,
     customer:0,
@@ -85,4 +85,4 @@ function page() {
   )
 }
 
-export default page
+export default Page
