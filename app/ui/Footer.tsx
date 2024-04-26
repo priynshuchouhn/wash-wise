@@ -35,8 +35,8 @@ const Footer: React.FC = () => {
           © Wash Wise, 2024.{" "}
         </p>
         <div className="order-1 md:order-2">
-          <span className="px-2">About us</span>
-          <span className="px-2 border-l">Contact us</span>
+          <Link href='/about' className="px-2">About us</Link>
+          <Link href="/contact" className="px-2 border-l">Contact us</Link>
           <span className="px-2 border-l">Privacy Policy</span>
           <Link href="/admin/auth/login" className="px-2 border-l">Admin</Link>
         </div>
