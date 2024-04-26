@@ -14,7 +14,10 @@ export default function AdminLoginPage() {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<LoginForm>()
+    } = useForm<LoginForm>({defaultValues:{
+        email: 'admin@waswise.com',
+        password: 'admin12'
+    }})
 
     async function handleLogin(data:any) {
         try {
