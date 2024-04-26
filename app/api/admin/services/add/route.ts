@@ -1,7 +1,7 @@
 import connectDB from "@/utils/dbConfig";
 import { NextRequest, NextResponse } from "next/server";
-import { User } from "@/models/userModel";
 import Authorize from "@/utils/authorize";
+import { Product } from "@/models/productModel";
 
 connectDB();
 
@@ -18,7 +18,7 @@ export async function POST(request: NextRequest) {
             return NextResponse.json({success: false , message: 'Unauthorized user'}, {status: 403});
         }
         const validationErrors: string[] = [];
-        if(!data || data.length > 0){
+        if(data.length <= 0){
             return NextResponse.json({success: false , message: 'No Data Found'}, {status: 400});
 
         }
@@ -37,8 +37,8 @@ export async function POST(request: NextRequest) {
             // Validation failed, return error response
             return NextResponse.json({message: 'Required Fields missing', data:validationErrors}, {status: 400}); 
         }
-        
-       return NextResponse.json({message: 'Services added successfully', data:[]}, {status: 200});
+        const services = await Product.insertMany(data);
+       return NextResponse.json({message: 'Services added successfully', data: services}, {status: 200});
     } catch (error: any) {
         console.log(error);
         return NextResponse.json({message: 'Internal Server Error', success: false, data:error}, {status: 500});
