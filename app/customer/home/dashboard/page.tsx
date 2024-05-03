@@ -59,8 +59,8 @@ function Page() {
               Service
             </label>
             <div className="mt-2 w-full">
-              <select className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" {...register('service', { required: true })} onChange={handleSelectChange}>
-              <option selected disabled>Select a service</option>
+              <select className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" {...register('service', { required: true, value:"Select a service"})} onChange={handleSelectChange}>
+              <option disabled>Select a service</option>
                 {lstServices.map((item:any) => <option key={item._id} value={item._id}>{item.name}</option>)}
               </select>
             </div>
