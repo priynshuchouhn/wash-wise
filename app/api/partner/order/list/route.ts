@@ -16,7 +16,7 @@ export async function GET(request: NextRequest) {
             path: 'customerId',
             model: 'user' ,
             select: 'name'
-          }).sort({orderDate: -1});
+          }).sort({orderDate: 1});
        return NextResponse.json({message: 'Orders Fetched successfully', data: lstOrder}, {status: 200});
     } catch (error: any) {
         console.log(error);

@@ -85,7 +85,7 @@ export default function List() {
                         <td className="px-6 py-4">
                             {order.partnerId ? order.partnerId.name : '-'}
                         </td>
-                        <td className="px-6 py-4">
+                        <td className="px-6 py-4 font-bold">
                             <div className={statusClass[order.status]}>{order.status}</div>
                         </td>
                         <td className="px-6 py-4">

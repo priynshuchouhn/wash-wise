@@ -12,24 +12,44 @@ function Dashboard() {
   const [lstOrder, setLstOrder] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    setIsLoading(true)
-    axios.get('/api/partner/order/list').then(res => {
+  async function fetchOrderList() {
+    try {
+      setIsLoading(true)
+      const res = await axios.get('/api/partner/order/list')
       const data = res.data.data
-      // console.log(data);
       setLstOrder(data);
       setIsLoading(false)
-    }).catch(err => {
-      console.log(err);
+    } catch (error) {
+      console.log(error);
       setIsLoading(false)
-    })
-    axios.get('/api/partner/dashboard/metrics').then(res=>{
+    }
+  }
+  async function fetchPartnerDashboardMetrics() {
+    try {
+      setIsLoading(true)
+      const res = await axios.get('/api/partner/dashboard/metrics')
       const data = res.data.data
-      setMetrics(data)
-    }).catch(err=>{
-      console.log(err)
-    })
+      setMetrics(data);
+      setIsLoading(false)
+    } catch (error) {
+      console.log(error);
+      setIsLoading(false)
+    }
+  }
+
+  useEffect(() => {
+    fetchPartnerDashboardMetrics();
+    fetchOrderList();
   }, [])
+  async function handleStatusUpdate(id: any) {
+    try {
+      const response = await axios.post('/api/partner/order/updateStatus', { orderId: id })
+      fetchOrderList();
+      fetchPartnerDashboardMetrics();
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <>
       <h3 className="text-3xl font-medium text-gray-700">Dashboard</h3>
@@ -77,7 +97,7 @@ function Dashboard() {
         </div>
       </div>
       <hr className='h-2 mb-4 ' />
-      {isLoading || lstOrder.length <=0 ? <div className="flex justify-center items-center"><p className="text-3xl">No orders found</p></div> : <div className="grid md:grid-cols-4 gap-4 grid-cols-1">
+      {isLoading || lstOrder.length <= 0 ? <div className="flex justify-center items-center"><p className="text-3xl">No orders found</p></div> : <div className="grid md:grid-cols-4 gap-4 grid-cols-1">
         {lstOrder.map((order: any) => <div key={order._id} className="rounded-lg text-center bg-gray-50 px-8 py-6">
           <div className="flex justify-center">
             <div className="rounded-full bg-green-200 p-6">
@@ -114,9 +134,9 @@ function Dashboard() {
           <p className="w-full text-center font-bold text-gray-600">
             Your Earnings : &#8377;{order.totalPrice * 0.3}
           </p>
-          <span className="cursor-pointer mx-auto mt-10 block rounded-xl border-4 border-transparent bg-orange-400 px-6 py-3 text-center text-base font-medium text-orange-100 outline-8 hover:outline hover:duration-300">
+          <button onClick={order.status == 'Pending' ? () => handleStatusUpdate(order._id) : undefined} className="cursor-pointer mx-auto mt-10 block rounded-xl border-4 border-transparent bg-orange-400 px-6 py-3 text-center text-base font-medium text-orange-100 outline-8 hover:outline hover:duration-300">
             {order.status}
-          </span>
+          </button>
           <small className='text-gray-400'>Click to change the status</small>
         </div>
         )}
