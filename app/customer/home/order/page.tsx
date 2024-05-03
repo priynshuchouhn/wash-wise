@@ -18,7 +18,7 @@ export default function Page() {
     }, [])
 
     return (
-        isLoading ? <div className="flex justify-center items-center"><p className="text-3xl">No orders found</p></div> : <div className="grid md:grid-cols-3 gap-4 grid-cols-1">
+        isLoading || lstOrder.length <=0 ? <div className="flex justify-center items-center"><p className="text-3xl">No orders found</p></div> : <div className="grid md:grid-cols-3 gap-4 grid-cols-1">
         {lstOrder.map((order: any) => <div key={order._id} className="rounded-lg bg-gray-50 px-16 py-14">
             <div className="flex justify-center">
                 <div className="rounded-full bg-green-200 p-6">
