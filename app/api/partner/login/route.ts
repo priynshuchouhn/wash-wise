@@ -32,7 +32,7 @@ export async function POST(request: Request) {
             httpOnly: true,
             // secure: true
         });
-        cookies().set("userType", user.role, {
+        cookies().set("userType", 'Partner', {
             httpOnly: true,
             // secure: true
         });

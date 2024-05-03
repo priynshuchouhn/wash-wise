@@ -5,15 +5,20 @@ import { useEffect, useState } from "react";
 
 export default function Page() {
     const [lstOrder, setLstOrder] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
     useEffect(() => {
+        setIsLoading(true)
         axios.get('/api/customer/order/list').then(res => {
             const data = res.data.data
-            console.log(data);
             setLstOrder(data);
-        }).catch(err => { })
+            setIsLoading(false)
+        }).catch(err => { 
+            setIsLoading(false)
+        })
     }, [])
 
-    return (<div className="grid md:grid-cols-3 gap-4 grid-cols-1">
+    return (
+        isLoading ? <div className="flex justify-center items-center"><p className="text-3xl">No orders found</p></div> : <div className="grid md:grid-cols-3 gap-4 grid-cols-1">
         {lstOrder.map((order: any) => <div key={order._id} className="rounded-lg bg-gray-50 px-16 py-14">
             <div className="flex justify-center">
                 <div className="rounded-full bg-green-200 p-6">
@@ -45,7 +50,7 @@ export default function Page() {
                 Status : {order.status}
             </p>
             <span className="mx-auto mt-10 block rounded-xl border-4 border-transparent bg-orange-400 px-6 py-3 text-center text-base font-medium text-orange-100 outline-8 hover:outline hover:duration-300">
-                {order.totalPrice}
+            &#8377;{order.totalPrice}
             </span>
         </div>
         )}

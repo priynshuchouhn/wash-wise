@@ -39,14 +39,14 @@ export default function CustomerRegisterPage() {
                     <h1 className="text-3xl font-bold text-center mb-4 cursor-pointer">
                         Create An Account
                     </h1>
-                    <p className="w-80 text-center text-sm mb-8 font-semibold text-gray-700 tracking-wide cursor-pointer">
+                    <p className="w-80 text-center text-sm mb-2 font-semibold text-gray-700 tracking-wide cursor-pointer">
                         Create an account to enjoy all the services!
                     </p>
                     {error ? <p className="w-80 text-center text-sm font-semibold text-red-700 tracking-wide cursor-pointer">
                         {error}
                     </p> : null}
                 </div>
-                <div className="space-y-4">
+                <div className="space-y-4 mt-8">
                     <input
                         type="text"
                         placeholder="Your name"
