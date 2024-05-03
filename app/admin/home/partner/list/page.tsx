@@ -14,7 +14,7 @@ export default function List() {
     },[])
     return (<>
         <h3 className="text-3xl font-medium text-gray-700">Partner</h3>
-        <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md my-5">
+        <div className="overflow-scroll md:overflow-hidden rounded-lg border border-gray-200 shadow-md my-5">
             <table className="w-full border-collapse bg-white text-left text-sm text-gray-500">
                 <thead className="bg-gray-50">
                     <tr>
