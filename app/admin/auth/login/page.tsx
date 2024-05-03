@@ -2,6 +2,7 @@
 
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { useForm } from "react-hook-form"
 type LoginForm = {
     email: string
@@ -10,6 +11,8 @@ type LoginForm = {
 
 export default function AdminLoginPage() {
     const router = useRouter();
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
     const {
         register,
         handleSubmit,
@@ -21,10 +24,14 @@ export default function AdminLoginPage() {
 
     async function handleLogin(data:any) {
         try {
+            setIsLoading(true);
+            setError(null)
             const response = await axios.post('/api/admin/login', data);
+            setIsLoading(false);
             router.replace('/admin/home/dashboard');
-            console.log(response);
         } catch (error:any) {
+            setError(error.response.data.message || "Something went wrong")
+            setIsLoading(false);
             console.log(error)
         }
     }
@@ -48,9 +55,12 @@ export default function AdminLoginPage() {
                         {errors.password && <p className="text-red-500 text-xs mt-1">Password is required</p>}
                     </div>
                     <div className="mt-6">
-                        <button type="submit" className="w-full inline-flex items-center justify-center px-4 py-2 bg-blue-500 border border-transparent rounded-md font-semibold capitalize text-white hover:bg-sky-700 active:bg-sky-700 focus:outline-none focus:border-sky-700 focus:ring focus:ring-sky-200 disabled:opacity-25 transition">
-                            Sign In
+                        <button disabled={isLoading} type="submit" className="w-full inline-flex items-center justify-center px-4 py-2 bg-blue-500 border border-transparent rounded-md font-semibold capitalize text-white hover:bg-sky-700 active:bg-sky-700 focus:outline-none focus:border-sky-700 focus:ring focus:ring-sky-200 disabled:opacity-25 transition">
+                            {isLoading ? 'Loading...' : 'Sign In'}
                         </button>
+                    </div>
+                    <div className="mt-6">
+                        <p className="text-red-600 text-center">{error}</p>
                     </div>
                 </form>
             </div>

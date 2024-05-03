@@ -101,7 +101,7 @@ export default function Header({handleSidebar, userType}: any) {
 
                     {dropdownOpen && (
                         <div className="absolute right-0 z-10 w-48 mt-2 overflow-hidden bg-white rounded-md shadow-xl">
-                            <Link href={`/${userType}/home/profile`} className="block px-4 py-2 text-sm text-gray-700 hover:bg-sky-100 hover:text-blue-500 cursor-pointer" onClick={() => setDropdownOpen(false)}>Profile</Link>
+                            {userType == 'customer' || userType == 'partner' ? <Link href={`/${userType}/home/profile`} className="block px-4 py-2 text-sm text-gray-700 hover:bg-sky-100 hover:text-blue-500 cursor-pointer" onClick={() => setDropdownOpen(false)}>Profile</Link> : null}
                             <a onClick={handleLogout} className="block px-4 py-2 text-sm text-gray-700 hover:bg-sky-100 hover:text-blue-500 cursor-pointer">Logout</a>
                         </div>
                     )}

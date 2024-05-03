@@ -16,7 +16,7 @@ function Dashboard() {
     setIsLoading(true)
     axios.get('/api/partner/order/list').then(res => {
       const data = res.data.data
-      console.log(data);
+      // console.log(data);
       setLstOrder(data);
       setIsLoading(false)
     }).catch(err => {

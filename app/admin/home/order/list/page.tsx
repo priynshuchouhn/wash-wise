@@ -4,6 +4,14 @@ import { PencilIcon } from "@heroicons/react/24/outline";
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 
+const statusClass: any = {
+    'Pending': 'text-amber-700',
+    'Picked': 'text-orange-700',
+    'In Process': 'text-blue-700',
+    'Completed': 'text-green-700',
+
+}
+
 export default function List() {
     const [lstOrder, setLstOrder] = useState([]);
     const [lstPartner, setLstPartner] = useState([])
@@ -56,6 +64,9 @@ export default function List() {
                         <th scope="col" className="px-6 py-4 font-medium text-gray-900">
                             Partner
                         </th>
+                        <th scope="col" className="px-6 py-4 font-medium text-gray-900">
+                            Status
+                        </th>
                         <th scope="col" className="px-6 py-4 font-medium text-gray-900" >Action</th>
                     </tr>
                 </thead>
@@ -72,7 +83,10 @@ export default function List() {
                             <div className="text-gray-700">{order.customerId.name}</div>
                         </td>
                         <td className="px-6 py-4">
-                            {order.partnerId ?  order.partnerId.name : '-'}
+                            {order.partnerId ? order.partnerId.name : '-'}
+                        </td>
+                        <td className="px-6 py-4">
+                            <div className={statusClass[order.status]}>{order.status}</div>
                         </td>
                         <td className="px-6 py-4">
                             <div className="flex justify-start gap-4">
