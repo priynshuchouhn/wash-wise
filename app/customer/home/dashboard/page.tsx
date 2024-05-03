@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 function Page() {
-  const { register, watch, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const [lstServices, setLstServices] = useState([]) as any
   const [servicePrice, setServicePrice] = useState(0);
   const [quantity, setQuantity] = useState(0);

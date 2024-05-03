@@ -9,31 +9,39 @@ const connection: any = {}
 
 const connectDB = async () => {
     try {
-        // if (connection.isConnected) return
-        // const db = await mongoose.
-        //     connect(process.env.MONGO_DB_URL!)
-        // console.log('connection to db completed');
-        // connection.isConnected = db.connections[0].readyState
-        mongoose.connect(process.env.MONGO_DB_URL!)
-        const connection = mongoose.connection
+        if (connection.isConnected) return
+        const db = await mongoose.connect(process.env.MONGO_DB_URL!)
+        const models = {
+            User,
+            Product,
+            Customer,
+            Order,
+            DeliveryPartner
+            // other models
+        };
+        // return models
+        console.log('connection to db completed');
+        connection.isConnected = db.connections[0].readyState
+        // mongoose.connect(process.env.MONGO_DB_URL!)
+        // const connection = mongoose.connection
 
-        connection.on('connected', () => {
-            console.log('successfully connected to MongoDB')
-            const models = {
-                User,
-                Product,
-                Customer,
-                Order,
-                DeliveryPartner
-                // other models
-            };
-            return models
+        // connection.on('connected', () => {
+        //     console.log('successfully connected to MongoDB')
+        //     const models = {
+        //         User,
+        //         Product,
+        //         Customer,
+        //         Order,
+        //         DeliveryPartner
+        //         // other models
+        //     };
+        //     return models
 
-        })
-        connection.on('error', (error) => {
-            console.log('Error connecting to MongoDB: ' + error);
-            process.exit(1);
-        })
+        // })
+        // connection.on('error', (error) => {
+        //     console.log('Error connecting to MongoDB: ' + error);
+        //     process.exit(1);
+        // })
 
 
     } catch (error) {

@@ -20,7 +20,12 @@ export async function GET(request: NextRequest) {
         .populate({
           path: 'productId',
           model: 'product'
-        });       return NextResponse.json({message: 'Delivery Partner List Fetched Successfully', data:lstOrder}, {status: 200});
+        })      
+        .populate({
+          path: 'partnerId',
+          model: 'user'
+        });       
+        return NextResponse.json({message: 'Delivery Partner List Fetched Successfully', data:lstOrder}, {status: 200});
     } catch (error) {
         console.log(error)
         return NextResponse.json({message: 'Internal Server Error', success: false, data:error}, {status: 500});
