@@ -12,7 +12,7 @@ export default function Page() {
     useEffect(() => {
         setIsLoading(true);
         setError(null)
-        axios.get('/api/customer/profile').then(res => {
+        axios.get('/api/partner/profile').then(res => {
             const user = res.data.data;
             setData({ name: user.name || user.userId.name, mobile: user.mobile, address: user.address });
             setIsLoading(false);
@@ -38,8 +38,10 @@ export default function Page() {
             const body ={
                 address: data.address,
                 mobile: data.mobile,
+                vehicleType: data.vehicleType,
+                vehicleRegNumber: data.vehicleRegNumber
             }
-            const response = await axios.post('/api/customer/profile/update', body);
+            const response = await axios.post('/api/partner/profile/update', body);
             setIsLoading(false);
         } catch (error:any) {
             setIsLoading(false);
@@ -50,7 +52,7 @@ export default function Page() {
     return (<>
         <form onSubmit={handleSubmit(handleSave)} className="w-full">
             <div className="flex flex-col justify-center items-center">
-                <div className="relative flex flex-col items-center rounded-[20px] w-[700px] max-w-[95%] mx-auto bg-white bg-clip-border shadow-3xl shadow-shadow-500 p-3 mb-5">
+                <div className="relative flex flex-col items-center rounded-[20px] w-[700px] max-w-[95%] mx-auto bg-white bg-clip-border shadow-3xl shadow-shadow-500  p-3 mb-5">
                     <div className="mt-2 mb-8 w-full">
                         <h4 className="px-2 text-xl font-bold text-navy-700">
                             General Information
@@ -76,6 +78,20 @@ export default function Page() {
                                 <input type="text" {...register('mobile', { required: true })} maxLength={10} className="block text-sm py-3 px-4 rounded-lg w-full border outline-sky-500" />
                             </p>
                             {errors.mobile && <p className="text-red-500 text-xs mt-1 absolute bottom-0">Mobile is required</p>}
+                        </div>
+                        <div className="flex flex-col items-start justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
+                            <p className="text-sm text-gray-600">Vehicle Type</p>
+                            <p className="w-full text-base font-medium text-navy-700 ">
+                            <input type="text" {...register('vehicleType', { required: true })} className="block text-sm py-3 px-4 rounded-lg w-full border outline-sky-500" />
+                            </p>
+                            {errors.vehicleType && <p className="text-red-500 text-xs mt-1 absolute bottom-0">Vehicle Type is required</p>}
+                        </div>
+                        <div className="relative flex flex-col items-start justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
+                            <p className="text-sm text-gray-600">Vehicle Reg. No.</p>
+                            <p className="w-full text-base font-medium text-navy-700 ">
+                                <input type="text" {...register('vehicleRegNumber', { required: true })} maxLength={10} className="block text-sm py-3 px-4 rounded-lg w-full border outline-sky-500" />
+                            </p>
+                            {errors.vehicleRegNumber && <p className="text-red-500 text-xs mt-1 absolute bottom-0">Vehicle Reg. Number is required</p>}
                         </div>
                         <div className="relative col-span-2 flex flex-col w-full justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
                             <p className="text-sm text-gray-600">Address</p>

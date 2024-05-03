@@ -76,7 +76,7 @@ function Dashboard() {
           </div>
         </div>
       </div>
-      <hr className='h-2 mb-4 bg-blue-500' />
+      <hr className='h-2 mb-4 ' />
       {isLoading || lstOrder.length <=0 ? <div className="flex justify-center items-center"><p className="text-3xl">No orders found</p></div> : <div className="grid md:grid-cols-4 gap-4 grid-cols-1">
         {lstOrder.map((order: any) => <div key={order._id} className="rounded-lg text-center bg-gray-50 px-8 py-6">
           <div className="flex justify-center">
