@@ -2,6 +2,7 @@
 import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 type LoginForm = {
     email: string
@@ -11,11 +12,18 @@ type LoginForm = {
 export default function CustomerLoginPage() {
     const {handleSubmit, register, formState:{errors}} = useForm<LoginForm>()
     const router = useRouter();
+    const [isLoading, setIsLoading] = useState(false)
+    const [error, setError] = useState(null)
     async function handleLogin(data:any) {
         try {
+            setIsLoading(true)
+            setError(null);
             const response = await axios.post('/api/partner/login', data);
+            setIsLoading(false)
             router.replace('/partner/home/dashboard');
         } catch (error:any) {
+            setIsLoading(false)
+            setError(error.response.data.message || 'Something went wrong');
             console.log(error)
         }
     }
@@ -31,6 +39,9 @@ export default function CustomerLoginPage() {
                     <p className="w-80 text-center text-sm mb-8 font-semibold text-gray-700 tracking-wide cursor-pointer">
                         Use your email and password to login!
                     </p>
+                    {error ? <p className="w-80 text-center text-sm font-semibold text-red-700 tracking-wide cursor-pointer">
+                       {error}
+                    </p> : null}
                 </div>
                 <div className="space-y-4">
                     <input
@@ -49,8 +60,8 @@ export default function CustomerLoginPage() {
                     {errors.password && <p className="text-red-500 text-xs mt-1">Password is required</p>}
                 </div>
                 <div className="text-center mt-6">
-                    <button className="w-full py-2 text-xl text-white bg-blue-400 rounded-lg hover:bg-blue-500 transition-all">
-                        Login
+                <button disabled={isLoading} className="w-full py-2 text-xl text-white bg-sky-400 rounded-lg hover:bg-sky-500 transition-all">
+                        {isLoading? 'Loading...' :'Login'}
                     </button>
                     <p className="mt-4 text-sm">
                         Don&apos;t Have An Account?{" "}

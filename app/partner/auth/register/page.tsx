@@ -2,6 +2,7 @@
 import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { useForm } from 'react-hook-form';
 
 type RegisterForm = {
@@ -13,11 +14,18 @@ type RegisterForm = {
 export default function CustomerRegisterPage() {
     const { handleSubmit, register, formState: { errors } } = useForm<RegisterForm>();
     const router = useRouter();
+    const [isLoading, setIsLoading] = useState(false)
+    const [error, setError] = useState(null)
     async function handleRegister(data: any) {
         try {
+            setIsLoading(true);
+            setError(null);
             const response = await axios.post('/api/partner/register', data);
+            setIsLoading(false);
             router.push('/partner/auth/login');
-        } catch (error:any) {
+        } catch (error: any) {
+            setIsLoading(false)
+            setError(error.response.data.message || 'Something went wrong');
             console.log(error)
         }
     }
@@ -34,30 +42,33 @@ export default function CustomerRegisterPage() {
                     <p className="w-80 text-center text-sm mb-8 font-semibold text-gray-700 tracking-wide cursor-pointer">
                         Create an account to enjoy all the services!
                     </p>
+                    {error ? <p className="w-80 text-center text-sm font-semibold text-red-700 tracking-wide cursor-pointer">
+                        {error}
+                    </p> : null}
                 </div>
                 <div className="space-y-4">
                     <input
                         type="text"
                         placeholder="Your name"
-                        {...register('name', {required: true})}
+                        {...register('name', { required: true })}
                         className="block text-sm py-3 px-4 rounded-lg w-full border outline-blue-500"
                     />
                     <input
                         type="email"
-                        {...register('email', {required: true})}
+                        {...register('email', { required: true })}
                         placeholder="Email Address"
                         className="block text-sm py-3 px-4 rounded-lg w-full border outline-blue-500"
                     />
                     <input
                         type="password"
                         placeholder="Password"
-                        {...register('password', {required: true})}
+                        {...register('password', { required: true })}
                         className="block text-sm py-3 px-4 rounded-lg w-full border outline-blue-500"
                     />
                 </div>
                 <div className="text-center mt-6">
-                    <button type="submit" className="w-full py-2 text-xl text-white bg-blue-400 rounded-lg hover:bg-blue-500 transition-all">
-                        Create Account
+                    <button disabled={isLoading} type="submit" className="w-full py-2 text-xl text-white bg-sky-400 rounded-lg hover:bg-sky-500 transition-all">
+                        {isLoading ? 'Loading...' : 'Create Account'}
                     </button>
                     <p className="mt-4 text-sm">
                         Already Have An Account?{" "}
